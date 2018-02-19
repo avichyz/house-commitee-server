@@ -2,7 +2,7 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var OrdersSchema = new Schema({
+var FloorsSchema = new Schema({
     number: {
         type: String
     },
@@ -25,4 +25,4 @@ var OrdersSchema = new Schema({
       }
 });
 
-module.exports = mongoose.model('Orders', OrdersSchema);
+module.exports = mongoose.model('Floors', FloorsSchema);

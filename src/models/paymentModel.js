@@ -2,7 +2,7 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var FurnituresSchema = new Schema({
+var PaymentsSchema = new Schema({
     name: {
         type: String
     },
@@ -31,4 +31,4 @@ var FurnituresSchema = new Schema({
     }
 });
 
-module.exports = mongoose.model('Furnitures', FurnituresSchema);
+module.exports = mongoose.model('Payments', PaymentsSchema);

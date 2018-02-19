@@ -2,7 +2,7 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var UsersSchema = new Schema({
+var ResidentsSchema = new Schema({
     name: {
         type: String
     },
@@ -30,4 +30,4 @@ var UsersSchema = new Schema({
     }
 });
 
-module.exports = mongoose.model('Users', UsersSchema);
+module.exports = mongoose.model('Residents', ResidentsSchema);
