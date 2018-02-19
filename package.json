@@ -1,0 +1,23 @@
+{
+  "name": "az",
+  "version": "1.0.0",
+  "description": "The code repository for the Node booklet.",
+  "main": "./src/server.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/scotch-io/node-booklet-code.git"
+  },
+  "dependencies": {
+    "express": "^4.16.2",
+    "mongoose": "latest"
+  },
+  "author": "Avichay Zana",
+  "license": "MIT",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon ./src/server.js"
+  },
+  "devDependencies": {
+    "nodemon": "^1.14.11"
+  }
+}
