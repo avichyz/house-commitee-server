@@ -3,15 +3,16 @@ const express = require('express'),
   app = express(),
   port = process.env.PORT || 8081,
   mongoose = require('mongoose'),
-  Furniture = require('./models/furnitureModel'), //created model loading here
-  User = require('./models/userModel'), //created model loading here
-  Order = require('./models/orderModel'), //created model loading here
+  Payment = require('./models/paymentModel'), //created model loading here
+  Resident = require('./models/residentModel'), //created model loading here
+  Floor = require('./models/floorModel'), //created model loading here
   bodyParser = require('body-parser');
 
 // const bodyParser = require('body-parser');
 // const mongoose = require('mongoose');
 mongoose.Promise = require('bluebird');
-mongoose.connect('mongodb://admin:221189@ds117858.mlab.com:17858/ron_furnitures'); 
+mongoose.connect('mongodb://admin:221189@ds143388.mlab.com:43388/house_commitee_lachis')
+
 
 // catch random errors
 let db = mongoose.connection;
@@ -21,16 +22,16 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 //importing route
-require('./routes/furnituresRoutes')(app); 
-require('./routes/usersRoutes')(app); 
-require('./routes/ordersRoutes')(app); 
+require('./routes/paymentsRoutes')(app);
+require('./routes/residentsRoutes')(app);
+require('./routes/floorsRoutes')(app);
 
 
 app.listen(port);
 
 // catch bad requests
-app.use(function(req, res) {
-  res.status(404).send({path: req.originalUrl + ' not found'})
+app.use(function (req, res) {
+  res.status(404).send({ path: req.originalUrl + ' not found' })
 });
 
 // send a message
