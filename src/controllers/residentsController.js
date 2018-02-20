@@ -1,19 +1,37 @@
-var mongoose = require('mongoose'),
-ResidentsSchema = mongoose.model('Residents');
-exports.getAllResidents = function (req, res) {
-    ResidentsSchema.find({}, function (err, resident) {
+
+import mongoose from 'mongoose';
+let ResidentsSchema = mongoose.model('Residents');
+
+
+// exports.getAllResidents = function (req, res) {
+//     ResidentsSchema.find({}, function (err, resident) {
+//         if (err) res.send(err);
+//         res.json(resident);
+//     });
+// };
+
+exports.findResidents = function (req, res) {
+    return ResidentsSchema.find({ name: req.params.name }, function (err, resident) {
             if (err) res.send(err);
             res.json(resident);
-        });
-};
+    })
+}
+
+
 exports.saveResident = function (req, res) {
-    var newResident = new ResidentsSchema(req.body);
+    let newResident = new ResidentsSchema(req.body);
     newResident.save(
         function (err, resident) {
-            if (err) res.send(err);
+            if (err) {
+                assert.equal(error.errors['name'].message,
+                    'Path `name` is required.');
+                res.send(err);
+            }
             res.json(resident);
         });
 };
+
+
 exports.getResident = function (req, res) {
     ResidentsSchema.findById(req.params.residentId,
         function (err, resident) {
@@ -32,7 +50,8 @@ exports.updateResident = function (req, res) {
 }
 exports.deleteResident = function (req, res) {
     ResidentsSchema.remove({
-        _id: req.params.residentId},
+        _id: req.params.residentId
+    },
         function (err, resident) {
             if (err) res.send(err);
             res.json({ message: 'Resident was succefully deleted' });

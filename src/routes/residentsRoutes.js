@@ -1,15 +1,18 @@
 
 'use strict';
-module.exports = function(app) {
+module.exports = function (app) {
     var residentsManager = require('../controllers/residentsController');
 
     // routes
     app.route('/residents')
-    .get(residentsManager.getAllResidents)
-    .post(residentsManager.saveResident);
+        // .get(residentsManager.getAllResidents)
+        .post(residentsManager.saveResident);
+
+    app.route('/residents/:name')
+    .get(residentsManager.findResidents);
 
     app.route('/residents/:residentId')
-    .get(residentsManager.getResident)
-    .put(residentsManager.updateResident)
-    .delete(residentsManager.deleteResident)
+        .get(residentsManager.getResident)
+        .put(residentsManager.updateResident)
+        .delete(residentsManager.deleteResident)
 }

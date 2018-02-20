@@ -1,29 +1,29 @@
 'use strict';
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
+let mongoose = require('mongoose');
+let Schema = mongoose.Schema;
 
-var ResidentsSchema = new Schema({
+let ResidentsSchema = new Schema({
     name: {
-        type: String
+        type: String,
+        required: true
     },
-    createdDate: {
+    updatedDate: {
         type: Date,
         default: Date.now
-      },
+    },
     phoneNumber1: {
         type: String
     },
     phoneNumber2: {
         type: String
     },
-    city: {
-        type: String
+    appartment: {
+        type: Schema.Types.ObjectId,
+        ref: 'Appartment'
     },
-    houseNumber: {
-        type: Number
-    },
-    appartmentNumber: {
-        type: Number
+    isOwner: {
+        type: Boolean,
+        default: false
     },
     info: {
         type: String
