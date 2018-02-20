@@ -3,31 +3,22 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var PaymentsSchema = new Schema({
-    name: {
-        type: String
+    resident: {
+        type: Schema.Types.ObjectId,
+        ref: 'Resident'
+    },
+    year: {
+        type: Number
+    },
+    month: {
+        type: Number
+    },
+    updatedDate: {
+        type: Date,
+        default: Date.now
     },
     info: {
         type: String
-    },
-    createdDate: {
-        type: Date,
-        default: Date.now
-      },
-    height: {
-        type: Number
-    },
-    width: {
-        type: Number
-    },
-    depth: {
-        type: Number
-    },
-    invantoryStatus: {
-        type: [{
-                type: String,
-                enum: ['unavailable', 'in stock', 'not in stock']
-            }],
-    default: ['not in stock']
     }
 });
 

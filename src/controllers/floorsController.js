@@ -3,9 +3,9 @@ var mongoose = require('mongoose'),
 
 exports.getAllFloors = function (req, res) {
     FloorsSchema.find({}, function (err, floor) {
-            if (err) res.send(err);
-            res.json(floor);
-        });
+        if (err) res.send(err);
+        res.json(floor);
+    });
 };
 exports.saveFloor = function (req, res) {
     var newFloor = new FloorsSchema(req.body);
@@ -33,7 +33,8 @@ exports.updateFloor = function (req, res) {
 }
 exports.deleteFloor = function (req, res) {
     FloorsSchema.remove({
-        _id: req.params.floorId},
+        _id: req.params.floorId
+    },
         function (err, floor) {
             if (err) res.send(err);
             res.json({ message: 'Floor was succefully deleted' });

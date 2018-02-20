@@ -2,7 +2,7 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var FloorsSchema = new Schema({
+var AppartmentsSchema = new Schema({
   number: {
     type: String
   },
@@ -17,9 +17,10 @@ var FloorsSchema = new Schema({
     type: Date,
     default: Date.now
   },
-  appartments: [{
-    type: Schema.Types.ObjectId, ref: 'Appartment'
+  residents: [{
+    type: Schema.Types.ObjectId,
+    ref: 'Resident'
   }]
 });
 
-module.exports = mongoose.model('Floors', FloorsSchema);
+module.exports = mongoose.model('Appartment', AppartmentsSchema);

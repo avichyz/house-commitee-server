@@ -9,14 +9,11 @@ var ResidentsSchema = new Schema({
     createdDate: {
         type: Date,
         default: Date.now
-      },
+    },
     phoneNumber1: {
         type: String
     },
     phoneNumber2: {
-        type: String
-    },
-    city: {
         type: String
     },
     houseNumber: {
@@ -24,6 +21,9 @@ var ResidentsSchema = new Schema({
     },
     appartmentNumber: {
         type: Number
+    },
+    isOwner: {
+        type: Boolean
     },
     info: {
         type: String
