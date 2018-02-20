@@ -1,5 +1,6 @@
 
-import mongoose from 'mongoose';
+let CircularJSON = require('circular-json');
+let mongoose = require('mongoose');
 let ResidentsSchema = mongoose.model('Residents');
 
 
