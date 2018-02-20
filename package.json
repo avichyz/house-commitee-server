@@ -8,6 +8,7 @@
     "url": "git+https://github.com/scotch-io/node-booklet-code.git"
   },
   "dependencies": {
+    "circular-json": "^0.5.1",
     "express": "^4.16.2",
     "mongoose": "latest"
   },

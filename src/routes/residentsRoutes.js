@@ -5,8 +5,11 @@ module.exports = function (app) {
 
     // routes
     app.route('/residents')
-        .get(residentsManager.getAllResidents)
+        // .get(residentsManager.getAllResidents)
         .post(residentsManager.saveResident);
+
+    app.route('/residents/:name')
+    .get(residentsManager.findResidents);
 
     app.route('/residents/:residentId')
         .get(residentsManager.getResident)

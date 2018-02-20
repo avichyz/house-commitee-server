@@ -1,12 +1,13 @@
 'use strict';
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
+let mongoose = require('mongoose');
+let Schema = mongoose.Schema;
 
-var ResidentsSchema = new Schema({
+let ResidentsSchema = new Schema({
     name: {
-        type: String
+        type: String,
+        required: true
     },
-    createdDate: {
+    updatedDate: {
         type: Date,
         default: Date.now
     },
@@ -16,14 +17,13 @@ var ResidentsSchema = new Schema({
     phoneNumber2: {
         type: String
     },
-    houseNumber: {
-        type: Number
-    },
-    appartmentNumber: {
-        type: Number
+    appartment: {
+        type: Schema.Types.ObjectId,
+        ref: 'Appartment'
     },
     isOwner: {
-        type: Boolean
+        type: Boolean,
+        default: false
     },
     info: {
         type: String
