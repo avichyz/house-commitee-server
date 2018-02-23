@@ -2,18 +2,12 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var PaymentsSchema = new Schema({
+var MessagesSchema = new Schema({
     resident: {
         type: Schema.Types.ObjectId,
         ref: 'Resident'
     },
-    year: {
-        type: Number
-    },
-    month: {
-        type: Number
-    },
-    updatedDate: {
+    createdDate: {
         type: Date,
         default: Date.now
     },
@@ -22,6 +16,8 @@ var PaymentsSchema = new Schema({
     }
 });
 
-PaymentsSchema.index({ '$**': 'text' });
 
-module.exports = mongoose.model('Payments', PaymentsSchema);
+// allow search on all string variables
+MessagesSchema.index({ '$**': 'text' });
+
+module.exports = mongoose.model('Messages', MessagesSchema);

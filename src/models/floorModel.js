@@ -22,4 +22,6 @@ var FloorsSchema = new Schema({
   }]
 });
 
+FloorsSchema.index({ '$**': 'text' });
+
 module.exports = mongoose.model('Floors', FloorsSchema);

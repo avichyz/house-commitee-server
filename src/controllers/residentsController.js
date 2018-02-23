@@ -1,20 +1,22 @@
 
-let CircularJSON = require('circular-json');
+let CircularJSON = require('circular-json-es6');
 let mongoose = require('mongoose');
 let ResidentsSchema = mongoose.model('Residents');
 
-
-// exports.getAllResidents = function (req, res) {
-//     ResidentsSchema.find({}, function (err, resident) {
-//         if (err) res.send(err);
-//         res.json(resident);
-//     });
-// };
+exports.getAllResidents = function (req, res) {
+     ResidentsSchema.find({}, function (err, resident) {
+        if (err) res.send(err);
+         res.json(resident);
+     });
+ };
 
 exports.findResidents = function (req, res) {
-    return ResidentsSchema.find({ name: req.params.name }, function (err, resident) {
+    return ResidentsSchema.find({ $text: { $search: req.params.searchString} },
+        function (err, resident) {
+        console.log(req.params.name);
             if (err) res.send(err);
-            res.json(resident);
+        // let data = CircularJSON.stringify(resident);
+        res.json(resident)
     })
 }
 

@@ -30,4 +30,6 @@ let ResidentsSchema = new Schema({
     }
 });
 
+ResidentsSchema.index({ '$**': 'text' });
+
 module.exports = mongoose.model('Residents', ResidentsSchema);

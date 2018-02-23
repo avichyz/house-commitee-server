@@ -23,4 +23,6 @@ var AppartmentsSchema = new Schema({
   }]
 });
 
+AppartmentsSchema.index({ '$**': 'text' });
+
 module.exports = mongoose.model('Appartment', AppartmentsSchema);
