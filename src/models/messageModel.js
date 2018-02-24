@@ -7,11 +7,17 @@ var MessagesSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'Resident'
     },
+    from: {
+        type: String
+    },
     createdDate: {
         type: Date,
         default: Date.now
     },
-    info: {
+    header: {
+        type: String
+    },
+    content: {
         type: String
     }
 });
