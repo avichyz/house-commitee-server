@@ -9,8 +9,10 @@
   },
   "dependencies": {
     "circular-json": "^0.5.1",
+    "circular-json-es6": "^2.0.2",
     "express": "^4.16.2",
-    "mongoose": "latest"
+    "mongoose": "latest",
+    "mongoose-in-memory-autocomplete": "^1.2.3"
   },
   "author": "Avichay Zana",
   "license": "MIT",

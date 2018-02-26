@@ -4,7 +4,9 @@ const express = require('express'),
   port = process.env.PORT || 8081,
   mongoose = require('mongoose'),
   Payment = require('./models/paymentModel'), //created model loading here
+  appartment = require('./models/appartmentModel'), //created model loading here
   Resident = require('./models/residentModel'), //created model loading here
+  Message = require('./models/messageModel'), //created model loading here
   Floor = require('./models/floorModel'), //created model loading here
   bodyParser = require('body-parser');
 
@@ -23,6 +25,8 @@ app.use(bodyParser.json());
 
 //importing route
 require('./routes/paymentsRoutes')(app);
+require('./routes/appartmentsRoutes')(app);
+require('./routes/messagesRoutes')(app);
 require('./routes/residentsRoutes')(app);
 require('./routes/floorsRoutes')(app);
 
