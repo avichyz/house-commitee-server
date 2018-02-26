@@ -11,9 +11,12 @@ exports.getAllResidents = function (req, res) {
  };
 
 exports.findResidents = function (req, res) {
-    return ResidentsSchema.find({ $text: { $search: req.params.searchString} },
+    return ResidentsSchema
+        .find({ $text: { $search: `*/${req.params.searchString}/i` } },
+    // .find({ "name": `/${req.params.searchString}/i` },
+    // .find({ $text: { $search: req.params.searchString} },
         function (err, resident) {
-        console.log(req.params.name);
+            console.log(req.params.searchString);
             if (err) res.send(err);
         // let data = CircularJSON.stringify(resident);
         res.json(resident)
