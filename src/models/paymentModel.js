@@ -22,4 +22,6 @@ var PaymentsSchema = new Schema({
     }
 });
 
+PaymentsSchema.index({ '$**': 'text' });
+
 module.exports = mongoose.model('Payments', PaymentsSchema);

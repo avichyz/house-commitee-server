@@ -7,6 +7,10 @@ let ResidentsSchema = new Schema({
         type: String,
         required: true
     },
+    lastName: {
+        type: String,
+        required: true
+    },
     updatedDate: {
         type: Date,
         default: Date.now
@@ -29,5 +33,7 @@ let ResidentsSchema = new Schema({
         type: String
     }
 });
+
+ResidentsSchema.index({ '$**': 'text' });
 
 module.exports = mongoose.model('Residents', ResidentsSchema);
