@@ -7,6 +7,10 @@ let ResidentsSchema = new Schema({
         type: String,
         required: true
     },
+    lastName: {
+        type: String,
+        required: true
+    },
     updatedDate: {
         type: Date,
         default: Date.now
