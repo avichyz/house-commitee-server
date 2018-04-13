@@ -10,11 +10,18 @@ const express = require('express'),
   Floor = require('./models/floorModel'), //created model loading here
   bodyParser = require('body-parser');
 
+// Compression - for fast responses // 
+var compression = require('compression');
+app.use(compression()); //Compress all routes
+
+// Helmet - server protection against threats
+var helmet = require('helmet');
+app.use(helmet());
+
 // const bodyParser = require('body-parser');
 // const mongoose = require('mongoose');
 mongoose.Promise = require('bluebird');
 mongoose.connect('mongodb://admin:221189@ds143388.mlab.com:43388/house_commitee_lachis')
-
 
 // catch random errors
 let db = mongoose.connection;
@@ -29,7 +36,6 @@ require('./routes/appartmentsRoutes')(app);
 require('./routes/messagesRoutes')(app);
 require('./routes/residentsRoutes')(app);
 require('./routes/floorsRoutes')(app);
-
 
 app.listen(port);
 

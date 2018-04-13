@@ -1,6 +1,9 @@
 {
   "name": "az",
   "version": "1.0.0",
+  "engines": {
+    "node": "8.9.3"
+  },
   "description": "The code repository for the Node booklet.",
   "main": "./src/server.js",
   "repository": {
@@ -10,7 +13,9 @@
   "dependencies": {
     "circular-json": "^0.5.1",
     "circular-json-es6": "^2.0.2",
+    "compression": "^1.7.2",
     "express": "^4.16.2",
+    "helmet": "^3.12.0",
     "mongoose": "latest",
     "mongoose-in-memory-autocomplete": "^1.2.3"
   },
