@@ -11,6 +11,10 @@ let ResidentsSchema = new Schema({
         type: String,
         required: true
     },
+    residentId: {
+        type: Number,
+        required: false
+    },
     updatedDate: {
         type: Date,
         default: Date.now
