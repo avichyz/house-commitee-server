@@ -1,22 +1,20 @@
-// grab express
-const express = require('express'),
-  app = express(),
-  port = process.env.PORT || 8081,
-  mongoose = require('mongoose'),
-  Payment = require('./models/paymentModel'), //created model loading here
-  appartment = require('./models/appartmentModel'), //created model loading here
-  Resident = require('./models/residentModel'), //created model loading here
-  Message = require('./models/messageModel'), //created model loading here
-  Floor = require('./models/floorModel'), //created model loading here
-  bodyParser = require('body-parser');
-
-// Compression - for fast responses // 
 var compression = require('compression');
-app.use(compression()); //Compress all routes
-
-// Helmet - server protection against threats
 var helmet = require('helmet');
+
+// grab express
+const express = require('express');
+const app = express();
+const port = process.env.PORT || 8081;
+const mongoose = require('mongoose');
+const Payment = require('./models/paymentModel'); //created model loading here
+const appartment = require('./models/appartmentModel'); //created model loading here
+const Resident = require('./models/residentModel'); //created model loading here
+const Message = require('./models/messageModel'); //created model loading here
+const Floor = require('./models/floorModel'); //created model loading here
+const bodyParser = require('body-parser');
+
 app.use(helmet());
+app.use(compression()); //Compress all routes
 
 // const bodyParser = require('body-parser');
 // const mongoose = require('mongoose');
