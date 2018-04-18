@@ -8,11 +8,16 @@ module.exports = function (app) {
         .get(residentsManager.getAllResidents)
         .post(residentsManager.saveResident);
 
-    app.route('/residents/:searchString')
-    .get(residentsManager.findResidents);
-
-    app.route('/residents/:residentId')
+    // by item id
+    app.route('/residents/:id')
         .get(residentsManager.getResident)
         .put(residentsManager.updateResident)
         .delete(residentsManager.deleteResident)
+    
+    // by residentId
+    app.route('/residents/rId/:residentId')
+    .put(residentsManager.updateResidentByResidentId)
+    .get(residentsManager.getResidentByResidentId)
+    .delete(residentsManager.deleteResident)
+
 }

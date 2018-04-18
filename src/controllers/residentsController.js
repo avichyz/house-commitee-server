@@ -39,7 +39,7 @@ exports.saveResident = function (req, res) {
 
 
 exports.getResident = function (req, res) {
-    ResidentsSchema.findById(req.params.residentId,
+    ResidentsSchema.findById(req.params.id,
         function (err, resident) {
             if (err) res.send(err);
             res.json(resident);
@@ -47,16 +47,27 @@ exports.getResident = function (req, res) {
 };
 
 exports.updateResident = function (req, res) {
-    ResidentsSchema.findOneAndUpdate({ _id: req.params.residentId }, req.body, { new: true },
+    ResidentsSchema.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true },
         function (err, resident) {
             if (err) res.send(err);
             res.json(resident);
         });
     ;
 }
+
 exports.deleteResident = function (req, res) {
     ResidentsSchema.remove({
-        _id: req.params.residentId
+        _id: req.params.id
+    },
+    function (err, resident) {
+        if (err) res.send(err);
+        res.json({ message: 'Resident was succefully deleted' });
+    });
+};
+
+exports.deleteResidentByResidentId = function (req, res) {
+    ResidentsSchema.remove({
+        residentId: req.params.residentId
     },
         function (err, resident) {
             if (err) res.send(err);
@@ -64,3 +75,23 @@ exports.deleteResident = function (req, res) {
         });
 };
 
+
+exports.getResidentByResidentId = function (req, res) {
+    var query = { 'residentId': req.params.residentId };
+    ResidentsSchema.findOne(query, req.body, { new: true },
+        function (err, resident) {
+            if (err) res.send(err);
+            res.json(resident);
+        });
+    ;
+};
+
+exports.updateResidentByResidentId = function (req, res) {
+    var query = { 'residentId': req.params.residentId };
+    ResidentsSchema.findOneAndUpdate(query, req.body, { new: true },
+        function (err, resident) {
+            if (err) res.send(err);
+            res.json(resident);
+        });
+    ;
+}
