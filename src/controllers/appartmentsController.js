@@ -1,6 +1,7 @@
 
 let CircularJSON = require('circular-json-es6');
 let mongoose = require('mongoose');
+var assert = require('assert');
 let AppartmentsSchema = mongoose.model('Appartments');
 
 exports.getAllAppartments = function (req, res) {
@@ -26,7 +27,7 @@ exports.saveAppartment = function (req, res) {
     newAppartment.save(
         function (err, appartment) {
             if (err) {
-                assert.equal(error.errors['name'].message,
+                assert.equal(err.errors['name'].message,
                     'Path `name` is required.');
                 res.send(err);
             }

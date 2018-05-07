@@ -25,10 +25,11 @@ let ResidentsSchema = new Schema({
     phoneNumber2: {
         type: String
     },
-    appartment: {
-        type: Schema.Types.ObjectId,
-        ref: 'Appartment'
-    },
+    // appartment: {
+    //     type: Schema.Types.ObjectId,
+    //     required: false,
+    //     ref: 'Appartment'
+    // },
     isOwner: {
         type: Boolean,
         default: false
